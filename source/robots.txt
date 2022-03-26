@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /*
+Allow: /about/
+Allow: /archives/
+Allow: /categories/
+Allow: /contact/
+Allow: /link/
+Allow: /page/
+Allow: /posts/
+Allow: /tags/
+
+Disallow: /css/
+Disallow: /js/
+Disallow: /gallery/
+
+Sitemap: https://islu.cn/sitemap.xml
+Sitemap: https://islu.cn/baidusitemap.xml

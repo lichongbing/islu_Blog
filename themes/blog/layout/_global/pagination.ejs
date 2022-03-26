@@ -1,0 +1,22 @@
+<%# 页面切换 %>
+<% if (page.total > 1){ %>
+    <section class="pagination">
+        <% if (!page.prev) { %>
+            <span class="prev disable">
+                <i class="fas fa-angle-left"></i>
+            </span>
+        <%}%>
+        <%- paginator({
+            prev_text: '<i class="fa fa-angle-left"></i>',
+            next_text: '<i class="fa fa-angle-right"></i>',
+            space: '',
+            show_all: true,
+            escape: false
+        }) %>
+        <% if (!page.next) { %>
+            <span class="next disable">
+                <i class="fas fa-angle-right"></i>
+            </span>
+        <%}%>
+    </section>
+<%}%>

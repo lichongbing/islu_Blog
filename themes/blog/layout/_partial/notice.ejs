@@ -1,0 +1,70 @@
+<%# 首页公告 %>
+<% if(theme.notice.style1){ %>
+        <div class="notices">
+            <div class="textsst">
+                <center>📝 公告 <img src="https://files.islu.cn/detail/love.png" alt="Welcome"></center>
+                <br>
+                #近况 开源 <a href="https://github.com/ialoe/hexo-themes-matery-pro">matery-pro</a> 已适配Pjax实现音乐无中断播放 欢迎 <span class="hotpink">Star</span>
+                <br>
+                #方案 对于更新我只能说有空的话会水几篇文章，见谅 ~ 有需要的请移步<a href="/contact">留言板 ~</a>
+                <br>
+                #预见 更新我认为比较便捷的 hexo 使用方式
+                <br>
+                #资助 维护博客不易，憨憨叹气，所以可以给买个馒头吗，卟卟，资助链接 <code>
+                    <a href="/rewardModal">资助系统 ~</a></code> 进去点个广告支持一下也行哦 ~
+                <br>
+                #微信 最近创建了微信公众号 and 微信小程序，搜索名称：<span class="hotpink">闲花手札</span>，扫一扫
+                <code class="wxgzh">
+                    <a class="gzh" href="javascript:;">
+                        <i>公众号二维码</i>
+                        <div id="sweep_code">
+                            <img src="https://files.islu.cn/detail/gzh.jpg" loading="lazy" width="120" height="120"
+                                 alt="公众号二维码">
+                        </div>
+                    </a>
+                </code>~
+                <code class="wxgzh">
+                    <a class="gzh" href="javascript:;">
+                        <i>小程序二维码</i>
+                        <div id="sweep_code">
+                            <img src="https://files.islu.cn/detail/xcx.jpg" loading="lazy" width="120" height="120"
+                                 alt="小程序二维码">
+                        </div>
+                    </a>
+                </code>~
+            </div>
+        </div>
+<% } %>
+<% if(theme.notice.style2) { %>
+    <section class="main-group">
+        <div class="one-page-group">
+            <a href="<%= config.url %>">闲花手札</a>
+            <h3>
+                公众号：闲花手札
+                </br>
+                小程序：闲花手札
+            </h3>
+            <p>
+                #近况 适配Pjax源码bug较多，暂不上线，可先使用
+                <a href="https://github.com/ialoe/hexo-theme-islu">未适配Pjax源码</a>~
+                <span style="color:pink">若无法打开请将github更改为gitee(记得点个Star)</span>
+            </p>
+            <p>
+                #方案 对于更新我只能说有空的话会水几篇文章，见谅 ~ 有需要的请移步
+                <a href="/contact">留言板 ~</a>
+            </p>
+            <p>
+                #资助 维护博客不易，憨憨叹气，所以可以给买个馒头吗，卟卟，资助链接 <code>
+                    <a href="/rewardModal">资助系统 ~</a></code> 进去点个广告支持一下也行哦 ~
+            </p>
+        </div>
+        <div class="two-page-group">
+            <div class="item" style="--i:1;--w:1.5;"></div>
+            <div class="item" style="--i:2;--w:1.6;"></div>
+            <div class="item" style="--i:3;--w:1.7"></div>
+            <div class="item" style="--i:4;--w:1.8"></div>
+            <div class="item-other" style="--i:5;"></div>
+        </div>
+        <div class="img-group"></div>
+    </section>
+<% } %>

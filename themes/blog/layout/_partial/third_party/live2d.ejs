@@ -1,0 +1,15 @@
+<% if(theme.live2d){ %>
+    <!--  live2d  -->
+    <div id="live2d">
+        <script type="application/javascript">
+            if (IsPC() === true) {
+                loadScript("https://files.islu.cn/music/music.js", function () {
+                    getMusic("https://files.islu.cn/music/ruyueerzhi.mp3");
+                    loadScript("https://files.islu.cn/live2d/load.js", function () {
+                        console.log("引入live2d模型&音乐模块")
+                    })
+                })
+            }
+        </script>
+    </div>
+<% } %>

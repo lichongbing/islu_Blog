@@ -1,0 +1,57 @@
+<% if (theme.music.enable && !theme.live2d.enable){ %>
+    <div id="aplayer">
+        <link rel="stylesheet" href="https://files.islu.cn/aplayer/APlayer.min.css">
+        <style>
+            div#aplayer {
+                position: sticky;
+                left: 0;
+                bottom: 0;
+                z-index: 9;
+            }
+            .aplayer .aplayer-lrc p {
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 16px !important;
+            }
+            span.aplayer-list-title {
+                color: #666;
+            }
+            .aplayer .aplayer-list ol li {
+                background-color: aliceblue;
+            }
+            .aplayer .aplayer-lrc p.aplayer-lrc-current {
+                font-size: 15px;
+                color: <%- theme.music.theme %>;
+            }
+            <%if(theme.music.autoHide){%>
+            .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+                left: -66px !important;
+            }
+            .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+                left: 0 !important;
+            }
+            <%}%>
+        </style>
+        <meting-js
+                server="<%- theme.music.server %>"
+                type="<%- theme.music.type %>"
+                id="<%- theme.music.id %>"
+                fixed='<%- theme.music.fixed ? 'true' : 'false' %>'
+                autoplay='<%- theme.music.autoplay === true %>'
+                theme='<%- theme.music.theme %>'
+                loop='<%- theme.music.loop %>'
+                order='<%- theme.music.order %>'
+                preload='<%- theme.music.preload %>'
+                volume='<%- Number(theme.music.volume) %>'
+                list-folded='<%- theme.music.listFolded ? 'true' : 'false' %>'
+        >
+        </meting-js>
+        <script defer>
+            loadScript("https://files.islu.cn/aplayer/APlayer.min.js",function () {
+                loadScript("https://files.islu.cn/aplayer/Meting.min.js",function (){
+                    console.log("音乐加载完毕!")
+                })
+            })
+        </script>
+    </div>
+<% } %>

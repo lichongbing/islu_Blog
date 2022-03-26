@@ -1,0 +1,171 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 闲花博客 | Lu's Blog #这是网站标题
+subtitle: 不思量，自难忘 #这是网站副标题subtitle
+# 下面两个description,keywords，需要填上，如果想让搜索引擎收录，这个做SEO优化必不可忽视的两个属性
+description: Lu's blog是一个记录生活,分享知识的个人博客。主要记录生活的点点滴滴,分享学习上的经验知识,以求在茫茫人海中留下些许足迹。 #网站描述
+keywords: [闲花博客,闲花手札,JavaWeb,生活笔记记录,Lu's blog,lu,islu] #网站的关键词
+author: 闲花 #作者，文章版权所显示的
+language: zh-CN #网站语言，不填写，默认为英文
+timezone: '' #时区，可以不填写
+
+# URL
+## 在这里设置你的网站url。例如，如果你使用GitHub页面，设置url为“https://username.github.io/project”
+url: https://www.islu.cn
+permalink: posts/:abbrlink.html
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # 设为false可从永久链接中删除末尾的'index.html'
+  trailing_html: true # 设置为false可以从永久链接中删除末尾的'.html'
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - 'census/census.js'
+  - 'census/data/**'
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# Home _page setting
+# path: Root path for your blogs index _page. (default = '')
+# per_page: Posts displayed per _page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 18
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 0
+pagination_dir: _page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: blog
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+#     "hexo-deployer-git": "^3.0.0",
+#deploy:
+#  type: git
+#  repository:
+#    github: https://ialoe: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@github.com/ialoe/islu.git
+#  branch: master
+
+
+# enable: 开启/关闭 推送
+# cron: 执行时间周期
+# count: 每次提交最新的10篇文章
+# date: 更新时间(updated)|创建日期(created)
+# https://github.com/lete114/hexo-seo-autopush.git
+hexo_seo_autopush:
+  cron: 0 4 * * *
+  baidu:
+    enable: true
+    date: created
+    count: 10
+  bing:
+    enable: true
+    date: created
+    count: 10
+  google:
+    enable: true
+    date: created
+    count: 10
+    google_file: google_service_account.json # 谷歌服务账户
+
+# 自动生成sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
+# offline config passed to sw-precache.
+# npm i hexo-service-worker --save
+#service_worker:
+#  maximumFileSizeToCacheInBytes: 5242880
+#  staticFileGlobs:
+#    - public/**/*.{js,html,css,png,jpg,jpeg,gif,svg,eot,ttf,woff,woff2}
+#  stripPrefix: public
+#  verbose: true
+#  runtimeCaching:
+#    - urlPattern: /*
+#      handler: cacheFirst
+#      options:
+#        origin: cdn.jsdelivr.net
+#    - urlPattern: /*
+#      handler: cacheFirst
+#      options:
+#        origin: files.blog.cn
+#    - urlPattern: /*
+#      handler: cacheFirst
+#      options:
+#        origin: busuanzi.ibruce.info
+#    - urlPattern: /*
+#      handler: cacheFirst
+#      options:
+#        origin: hm.baidu.com
+#    - urlPattern: /*
+#      handler: cacheFirst
+#      options:
+#        origin: www.blog.cn
