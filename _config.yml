@@ -148,6 +148,16 @@ deploy:
     operatorPassword: JTnMRrKiVeW1tptudQcEz9rzEtAJgPbN # 操作员密码
     path: / # 上传目录(选填，默认为根目录)
 
+
+# Extensions
+plugins:
+  hexo-generator-feed
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
 # offline config passed to sw-precache.
 # npm i hexo-service-worker --save
 #service_worker:
