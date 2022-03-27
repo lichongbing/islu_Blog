@@ -118,27 +118,35 @@ theme: blog
 # count: 每次提交最新的10篇文章
 # date: 更新时间(updated)|创建日期(created)
 # https://github.com/lete114/hexo-seo-autopush.git
-hexo_seo_autopush:
-  cron: 0 4 * * *
-  baidu:
-    enable: true
-    date: created
-    count: 10
-  bing:
-    enable: true
-    date: created
-    count: 10
-  google:
-    enable: true
-    date: created
-    count: 10
-    google_file: google_service_account.json # 谷歌服务账户
+#hexo_seo_autopush:
+#  cron: 0 4 * * *
+#  baidu:
+#    enable: true
+#    date: created
+#    count: 10
+#  bing:
+#    enable: true
+#    date: created
+#    count: 10
+#  google:
+#    enable: true
+#    date: created
+#    count: 10
+#    google_file: google_service_account.json # 谷歌服务账户
 
 # 自动生成sitemap
 sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+
+deploy:
+  - type: upyun
+    serviceName: cn-islu # 服务名称
+    operatorName: ialoe # 操作员名称
+    operatorPassword: JTnMRrKiVeW1tptudQcEz9rzEtAJgPbN # 操作员密码
+    path: / # 上传目录(选填，默认为根目录)
 
 # offline config passed to sw-precache.
 # npm i hexo-service-worker --save

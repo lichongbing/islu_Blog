@@ -4,16 +4,19 @@
             <i class="fas fa-bars open_nav"></i>
             <a href="<%- url_for(config.root) %>" class="blog_name">闲花博客</a>
             <ul class="menu">
+                <li>
+                    <a href="/" rel="noopener noreferrer">首页</a>
+                    <div id="indicator"></div>
+                </li>
                 <% for (name in theme.menu) { %>
                     <% if(!Array.isArray(theme.menu[name])){ %>
                         <li>
-                            <a href="<%- url_for(theme.menu[name]) %>" rel="noopener noreferrer">
+                            <a href="<%- url_for(theme.menu[name]) %>/index.html" rel="noopener noreferrer">
                                 <%= name %>
                             </a>
                             <div id="indicator"></div>
                         </li>
-
-                <% }else{ %>
+                    <% }else{ %>
                         <li>
                             <a href="#" rel="noopener noreferrer">
                                 <%- name %>
@@ -23,7 +26,7 @@
                             <ul class="menu_child">
                                 <% for (child in theme.menu[name]) { %>
                                     <li>
-                                        <a href='<%- url_for(theme.menu[name][child].split("||")[1].trim()) %>'
+                                        <a href='<%- url_for(theme.menu[name][child].split("||")[1].trim()) %>/index.html'
                                            rel="noopener noreferrer"><%- theme.menu[name][child].split("||")[0].trim() %></a>
                                         <div id="indicator"></div>
                                     </li>
@@ -32,7 +35,6 @@
                         </li>
                     <% } %>
                 <% } %>
-
             </ul>
             <ul class="side-toolbar">
                 <% if(theme.darkmode){ %>
@@ -50,13 +52,16 @@
     </menu>
     <menu id="mobile_nav">
         <ul>
+            <li><a href="/" rel="noopener noreferrer">首页</a></li>
             <% for (name in theme.menu) { %>
                 <% if(!Array.isArray(theme.menu[name])){ %>
-                    <li><a href="<%- url_for(theme.menu[name]) %>" rel="noopener noreferrer"><%= name %></a></li>
+                    <li>
+                        <a href="<%- url_for(theme.menu[name]) %>/index.html" rel="noopener noreferrer"><%= name %></a>
+                    </li>
                 <% }else{ %>
                     <% for (child in theme.menu[name]) { %>
                         <li>
-                            <a href='<%- url_for(theme.menu[name][child].split("||")[1].trim()) %>'
+                            <a href='<%- url_for(theme.menu[name][child].split("||")[1].trim()) %>/index.html'
                                rel="noopener noreferrer"><%- theme.menu[name][child].split("||")[0].trim() %></a>
                         </li>
                     <% } %>
@@ -65,4 +70,3 @@
         </ul>
     </menu>
 </nav>
-
