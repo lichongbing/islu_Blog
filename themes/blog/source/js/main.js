@@ -14,7 +14,6 @@ function add_code_block() {
     })
 }
 
-
 // fancybox
 function fancyboxFn() {
     getScript($config.CDN.fancybox_js, function () {
@@ -250,7 +249,6 @@ function code_copy() {
         }
     })
 }
-
 
 // 执行所有函数
 function exe_all_fn() {

@@ -24,21 +24,6 @@ function $query(ele) {
 function $queryAll(eles) {
     return document.querySelectorAll(eles)
 }
-/**
- * 创建外围标签
- * @param {*} selectNode 被选择中的元素(标签)
- * @param {*} eleType 需要创建的元素(标签)
- * @param {*} id 创建元素id
- * @param {*} cn 创建元素className
- */
-
-function wrap(selectNode, eleType, id = '', cn = '') {
-    var creatEle = document.createElement(eleType)
-    if (id) creatEle.id = id
-    if (cn) creatEle.className = cn
-    selectNode.parentNode.insertBefore(creatEle, selectNode)
-    creatEle.appendChild(selectNode)
-}
 
 /**
  * 动态添加JavaScript
@@ -112,6 +97,7 @@ function ImgLazyLoad(img, attr) {
         })
         io.observe(target)
     }
+
     imgLazyLoad.forEach(LazyLoad)
 }
 ImgLazyLoad("body img[data-img]", "data-img")

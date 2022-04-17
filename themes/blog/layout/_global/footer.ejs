@@ -11,10 +11,14 @@ var custom_text = theme.footer.custom_text || config.subtitle // 自定义内容
             <span class="left">&copy;
                 <span id="year"></span>
                 <i class="fas fa-fan"></i>
-                <a href="<%- url_for('/about') %>" rel="noopener noreferrer"><%= config.author %></a>
+                <a href="<%- url_for('/about') %>" rel="noopener noreferrer">
+                    <%= config.author %>
+                </a>
                 <% if(icp_enable){ %>
                     <img class="icp" src="<%= icp_icon %>" loading="lazy" alt="ICP">
-                    <a id="icp" href="<%= icp_url %>" target="_blank" rel="noopener noreferrer"><%= icp_text %></a>
+                    <a id="icp" href="<%= icp_url %>" target="_blank" rel="noopener noreferrer">
+                        <%= icp_text %>
+                    </a>
                 <% } %>
                 <% if (theme.footer.time.enable) { %>
                     <span id="sitetime">载入运行时间...</span>
@@ -54,7 +58,6 @@ var custom_text = theme.footer.custom_text || config.subtitle // 自定义内容
                                 " 天 " + diffHours + " 时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
                             $id("runTime").innerHTML = "运行" + diffYears + "年" + diffDays +
                                 "天" + diffHours + "时" + diffMinutes + "分" + diffSeconds + "秒";
-
                         }
 
                         setInterval(siteTime, 1000);
