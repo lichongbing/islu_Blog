@@ -42,7 +42,7 @@
                 <span id="timeLag"></span>
             </p>
         </div>
-        <script type="text/javascript">
+        <script async type="text/javascript">
             function timeLag() {
                 let dateTime = new Date($id("dateTime").innerHTML)  /*文章发布日期*/
                 let updateTime = new Date($id("updateTime").innerHTML);  /*文章更新日期*/
@@ -168,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript">
+                    <script defer type="text/javascript">
                         $id("make_reward_close").onclick = function () {
                             $query(".reward_main").style.display = "none"
                         }
@@ -346,8 +346,8 @@
 <%# 是否有公式 %>
 <% if (page.mathjax) { %>
     <!--  mathjax数学公式支持  -->
-    <script src="<%- theme.CDN.mathjax %>"></script>
-    <script type="application/javascript">
+    <script defer src="<%- theme.CDN.mathjax %>"></script>
+    <script defer type="application/javascript">
         MathJax = {
             loader: {
                 source: {

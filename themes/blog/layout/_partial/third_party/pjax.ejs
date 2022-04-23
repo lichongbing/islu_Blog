@@ -1,7 +1,6 @@
 <% if(theme.pjax){ %>
 <script type="text/javascript">
     getScript("<%- theme.CDN.pjax %>", loadPjax)
-
     function loadPjax() {
         window.pjax = new Pjax({
             selectors: [

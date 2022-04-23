@@ -141,12 +141,12 @@ baidusitemap:
   path: baidusitemap.xml
 
 
-deploy:
-  - type: upyun
-    serviceName: cn-islu # 服务名称
-    operatorName: ialoe # 操作员名称
-    operatorPassword: JTnMRrKiVeW1tptudQcEz9rzEtAJgPbN # 操作员密码
-    path: / # 上传目录(选填，默认为根目录)
+#deploy:
+#  - type: upyun
+#    serviceName: cn-islu # 服务名称
+#    operatorName: ialoe # 操作员名称
+#    operatorPassword: JTnMRrKiVeW1tptudQcEz9rzEtAJgPbN # 操作员密码
+#    path: / # 上传目录(选填，默认为根目录)
 
 
 # Extensions
@@ -157,6 +157,13 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
+
+nofollow:
+  enable: true
+  field: site # site:全站   post:文章页面
+  exclude: # 白名单
+#    - 'exclude1.com'
+#    - 'exclude2.com'
 
 # offline config passed to sw-precache.
 # npm i hexo-service-worker --save

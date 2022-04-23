@@ -1,13 +1,13 @@
 <%# 暗色模式流星 %>
 <% if(theme.darkmode.enable & theme.darkmode.starDark){ %>
     <canvas id="universe"></canvas>
-    <script async src="https://files.islu.cn/js/starDark.js"></script>
+    <script defer src="https://files.islu.cn/js/starDark.js"></script>
 <% } %>
 
-    <script async src="https://files.islu.cn/js/busuanzi.pure.mini.js"></script>
+    <script defer src="https://files.islu.cn/js/busuanzi.pure.mini.js"></script>
 
 <%# 非js文件加载处 %>
-<script type="text/javascript">
+<script defer type="text/javascript">
     <%# 灰色滤镜 %>
     let myDate = new Date
     let mon = myDate.getMonth() + 1

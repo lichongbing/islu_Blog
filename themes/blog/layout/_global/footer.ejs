@@ -22,7 +22,7 @@ var custom_text = theme.footer.custom_text || config.subtitle // 自定义内容
                 <% } %>
                 <% if (theme.footer.time.enable) { %>
                     <span id="sitetime">载入运行时间...</span>
-                    <script type="text/javascript">
+                    <script defer type="text/javascript">
                         function siteTime() {
                             var seconds = 1000;
                             var minutes = seconds * 60;
