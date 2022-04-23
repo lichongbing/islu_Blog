@@ -3,11 +3,11 @@
     <section class="pagination">
         <% if (page.prev) { %>
             <a class="extend prev" rel="prev" name="page" href="<%- url_for(page.prev_link) %>">
-                <i class="fas fa-angle-left"></i>
+                <i class="fas fa-angle-left"></i>Prev
             </a>
         <% }else { %>
             <span class="extend prev disable">
-                <i class="fas fa-angle-left"></i>prev
+                <i class="fas fa-angle-left"></i>
             </span>
         <% } %>
 
@@ -15,7 +15,7 @@
 
         <% if (page.next) { %>
             <a class="extend next" rel="next" href="<%- url_for(page.next_link) %>">
-                <i class="fas fa-angle-right"></i>next
+                <i class="fas fa-angle-right"></i>Next
             </a>
         <% } else { %>
             <span class="extend next disable">
