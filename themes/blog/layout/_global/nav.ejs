@@ -10,7 +10,7 @@
                             <a href="<%- url_for(theme.menu[name]) %>" rel="noopener noreferrer">
                                 <%= name %>
                             </a>
-                            <div id="indicator"></div>
+                            <div class="indicator"></div>
                         </li>
                     <% }else{ %>
                         <li>
@@ -18,13 +18,13 @@
                                 <%- name %>
                                 <i class="fas fa-chevron-down" aria-hidden="true"></i>
                             </a>
-                            <div id="indicator"></div>
+                            <div class="indicator"></div>
                             <ul class="menu_child">
                                 <% for (child in theme.menu[name]) { %>
                                     <li>
                                         <a href='<%- url_for(theme.menu[name][child].split("||")[1].trim()) %>'
                                            rel="noopener noreferrer"><%- theme.menu[name][child].split("||")[0].trim() %></a>
-                                        <div id="indicator"></div>
+                                        <div class="indicator"></div>
                                     </li>
                                 <% } %>
                             </ul>

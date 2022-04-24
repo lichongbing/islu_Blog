@@ -1,5 +1,5 @@
 <%
-var code_block_expand = theme.code_block_expand
+var codeBlockExpand = theme.code_block_expand
 %>
 <script defer type="application/javascript">
     var $config = {
@@ -10,11 +10,11 @@ var code_block_expand = theme.code_block_expand
         <% if(theme.search.enable){ %>
         search_file: "<%= url_for(theme.search.path) %>",
         <% } %>
-        <% if(code_block_expand.enable){ %>
-        code_block_expand: {
-            enable: <%= code_block_expand.enable %>,
-            height: <%= code_block_expand.height %>,
-            scrollTop: <%= code_block_expand.scrollTop %>
+        <% if(codeBlockExpand.enable){ %>
+        codeBlockExpand: {
+            enable: <%= codeBlockExpand.enable %>,
+            height: <%= codeBlockExpand.height %>,
+            scrollTop: <%= codeBlockExpand.scrollTop %>
         },
         <% } %>
         <% if(theme.comments == "discuss"){ %>

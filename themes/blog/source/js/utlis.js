@@ -81,7 +81,6 @@ function loadScript(src, callback) {
  */
 function ImgLazyLoad(img, attr) {
     var imgLazyLoad = $queryAll(img)
-
     function LazyLoad(target) {
         const io = new IntersectionObserver((entries, Observer) => {
             entries.forEach(entry => {
@@ -97,7 +96,6 @@ function ImgLazyLoad(img, attr) {
         })
         io.observe(target)
     }
-
     imgLazyLoad.forEach(LazyLoad)
 }
 ImgLazyLoad("body img[data-img]", "data-img")
