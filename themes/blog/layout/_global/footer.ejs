@@ -65,7 +65,7 @@ var custom_text = theme.footer.custom_text || config.subtitle // 自定义内容
                 <% } %>
             </span>
         <span class="right">
-            站点总字数：<%= totalcount(site) %> 总访问量：<span id="islu_site_pv">N</span> 次
+            站点总字数：<%= totalcount(site) %> 总访问量：<span id="busuanzi_value_site_pv">N</span> 次
         </span>
     </div>
     <div class="footer-fav">
@@ -76,7 +76,6 @@ var custom_text = theme.footer.custom_text || config.subtitle // 自定义内容
                 </h2>
                 <div class="site-p">
                     <p><%= config.author %>【<%= config.subtitle %>】</p>
-                    <p>欢迎第<span id="islu_site_uv"></span>位朋友到访</p>
                     <p>风风雨雨<span id="runTime"></span></p>
                 </div>
             </div>
