@@ -1,4 +1,4 @@
-var html = $query("html")[0]
+var html = $query("html")
 var mask = $id("mask")
 
 // 打开侧边导航栏
@@ -97,52 +97,51 @@ function DarkMode() {
 function scrollFn() {
     // 监听 scroll 
     let windowTop = 0 // 定义初始位置
-    window.addEventListener('scroll',
-        function () {
-            let winHeight = document.documentElement.clientHeight || document.body.clientHeight //窗口高度
-            let pageHeight = document.body.scrollHeight || document.documentElement.scrollHeight // 页面总高度
-            let scrollTop = window.scrollY || document.documentElement.scrollTop //当前位置
+    window.addEventListener('scroll', function () {
+        let winHeight = document.documentElement.clientHeight || document.body.clientHeight //窗口高度
+        let pageHeight = document.body.scrollHeight || document.documentElement.scrollHeight // 页面总高度
+        let scrollTop = window.scrollY || document.documentElement.scrollTop //当前位置
 
-            // progress侧边进度条
-            let scroll_height = scrollTop / (pageHeight - winHeight) * 100
-            let scrollbar_current = $query(".j-scrollbar-current")
-            if (scrollbar_current) {
-                scrollbar_current.style.height = scroll_height + '%'
-            }
+        // progress侧边进度条
+        let scroll_height = scrollTop / (pageHeight - winHeight) * 100
+        let scrollbar_current = $query(".j-scrollbar-current")
+        if (scrollbar_current) {
+            scrollbar_current.style.height = scroll_height + '%'
+        }
 
-            //progress bar底部进度条
-            let progressElement = $query('.progress-bar')
-            let scrollAvail = pageHeight - winHeight // 可滚动的高度
-            if (progressElement && scrollAvail) {
-                progressElement.style.width = (scrollTop / scrollAvail) * 100 + '%'
-            }
+        //progress bar底部进度条
+        let progressElement = $query('.progress-bar')
+        let scrollAvail = pageHeight - winHeight // 可滚动的高度
+        if (progressElement && scrollAvail) {
+            progressElement.style.width = (scrollTop / scrollAvail) * 100 + '%'
+        }
 
 
-            // 回到顶部
-            let backTop = $id("backTop")
-            if (scrollTop > 20) {
-                backTop.style.visibility = "unset"
-            } else {
-                backTop.style.visibility = "hidden"
-            }
+        // 回到顶部
+        let backTop = $id("backTop")
+        if (scrollTop > 20) {
+            backTop.style.visibility = "unset"
+        } else {
+            backTop.style.visibility = "hidden"
+        }
 
-            // toc目录百分比
-            let article = $query(".post_content")
-            let num = $query(".num")
-            if (article && num) {
-                let headerHeight = article.offsetTop
-                let docHeight = article.clientHeight
+        // toc目录百分比
+        let article = $query(".post_content")
+        let num = $query(".num")
+        if (article && num) {
+            let headerHeight = article.offsetTop
+            let docHeight = article.clientHeight
 
-                let contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)
-                let scrollPercent = (scrollTop - headerHeight) / (contentMath)
-                let scrollPercentRounded = Math.round(scrollPercent * 100)
-                let percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
+            let contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)
+            let scrollPercent = (scrollTop - headerHeight) / (contentMath)
+            let scrollPercentRounded = Math.round(scrollPercent * 100)
+            let percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
 
-                num.innerText = percentage + "%"
-                $query(".progress").value = percentage
-            }
+            num.innerText = percentage + "%"
+            $query(".progress").value = percentage
+        }
 
-        })
+    })
 }
 
 // 文章所需JS
