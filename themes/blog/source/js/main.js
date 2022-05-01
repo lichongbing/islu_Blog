@@ -230,7 +230,7 @@ function exeAllFn() {
     close_all() // 关闭所有弹窗
     DarkMode() // 深色模式
     scroll() // 滚动事件
-    articlePage() //文章页面执行JS
+    articlePage() // 文章页面执行JS
 }
 
 document.addEventListener('DOMContentLoaded', exeAllFn)

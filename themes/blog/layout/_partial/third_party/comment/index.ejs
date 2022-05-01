@@ -2,8 +2,8 @@
     <div class="comment_head" id="comment">
         <hr>
         <% if(theme.comments == "discuss"){ %>
-            <%- partial('discuss') %>
-        <% } else if(theme.comments == "valine"){ %>
+            <div id="discuss"></div>
+    <% } else if(theme.comments == "valine"){ %>
             <%- partial('valine') %>
         <% }else if(theme.comments == "waline"){ %>
             <%- partial('waline') %>

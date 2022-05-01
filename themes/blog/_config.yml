@@ -72,7 +72,6 @@ music:
   preload: 'auto'   # 预加载，可选值: 'none', 'metadata', 'auto'
   volume: 0.7        # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
   listFolded: false  # 列表默认折叠
-  storageName: islu_music
 
 # 图片懒加载
 lazyload:
@@ -144,7 +143,7 @@ discuss:
   source: https://cdn.jsdelivr.net/npm/discuss/dist/Discuss.js
   master: 博主
   placeholder: 🤣一起来玩，留下你的足迹吧 ~
-  serverURLs: https://islu-discuss.vercel.app
+  serverURLs: https://discuss.islu.cn
   path: location.pathname
   stick: 置顶
   visitStat: true
