@@ -56,12 +56,11 @@ function getScript(url, callback) {
  * 动态添加CSS
  */
 function getLink(url){
-    var link = document.createElement("link");
+    let link = document.createElement("link");
     link.type = "text/css";
     link.rel = "stylesheet";
     link.href = url;
-    var head = document.getElmentsByTagName("head")[0];
-    head.appendChild(link);
+    $query("head")[0].appendChild(link);
 }
 
 /**

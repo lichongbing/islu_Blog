@@ -49,15 +49,18 @@
                 order='<%- theme.music.order %>'
                 preload='<%- theme.music.preload %>'
                 volume='<%- Number(theme.music.volume) %>'
-                list-folded='<%- theme.music.listFolded ? 'true' : 'false' %>'
+                list-folded='<%- theme.music.listFolded %>'
+                storageName='<%- theme.music.storageName %>'
         >
         </meting-js>
         <script defer>
             $id("music").onclick = function () {
-                getScript("https://files.islu.cn/aplayer/APlayer.min.js", function () {
-                    getScript("https://files.islu.cn/aplayer/Meting.min.js", getLink("https://files.islu.cn/aplayer/APlayer.min.css"))
-                })
-            }
+                    getScript("https://files.islu.cn/aplayer/APlayer.min.js", function () {
+                        getScript("https://files.islu.cn/aplayer/Meting.min.js", function () {
+                            console.log("加载音乐")
+                        })
+                    })
+                }
         </script>
     </div>
 <% } %>
