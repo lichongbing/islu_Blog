@@ -1,10 +1,11 @@
 var html = $query("html")
 var mask = $id("mask")
 
-// 打开侧边导航栏
-function openMobile() {
-    let mobile_nav = $id("mobile_nav")
+// 打开手机端导航栏
+function open_mobile() {
     let open_nav = $query('.open_nav')
+    if (!open_nav) return
+    let mobile_nav = $id("mobile_nav")
     open_nav.onclick = function () {
         let is_open = mobile_nav.classList.contains("open_mobile")
         if (!is_open) {
@@ -14,27 +15,8 @@ function openMobile() {
     }
 }
 
-// 显示右侧栏隐藏域
-function rightsideShow() {
-    let settings = $id("settings")
-    if (!settings) return
-    settings.onclick = function () {
-        let btn = document.getElementsByClassName("rightside_btn")
-        let is_show = btn[0].classList.contains("rightside_show")
-        if (!is_show) {
-            Array.prototype.forEach.call(btn, function (btn) {
-                btn.classList.add("rightside_show")
-            })
-        } else {
-            Array.prototype.forEach.call(btn, function (btn) {
-                btn.classList.remove("rightside_show")
-            })
-        }
-    }
-}
-
 // 关闭所有正在打开的弹窗(搜索框、侧边栏)
-function closeAll() {
+function close_all() {
     // 搜索框缩放样式
     let local_search = $id("local_search")
     if (local_search) {
@@ -59,9 +41,7 @@ function closeAll() {
 
 // 深色模式
 function DarkMode() {
-
     let darkIco = $query('#darkmode i')
-
     if (localStorage.isDark === 'true') {
         html.setAttribute('theme', 'dark')
         darkIco.classList.remove('fa-moon')
@@ -72,9 +52,7 @@ function DarkMode() {
         darkIco.classList.remove('fa-sun')
         darkIco.classList.add('fa-moon')
     }
-
     let darkBtn = $query('.pio-night') == null ? $id('darkmode') : $query('.pio-night')
-
     darkBtn.onclick = function () {
         let body_wrap = $id("body_wrap")
         if (localStorage.isDark !== 'true') {
@@ -94,7 +72,7 @@ function DarkMode() {
 }
 
 // 滚动事件
-function scrollFn() {
+function scroll() {
     // 监听 scroll 
     let windowTop = 0 // 定义初始位置
     window.addEventListener('scroll', function () {
@@ -109,20 +87,19 @@ function scrollFn() {
             scrollbar_current.style.height = scroll_height + '%'
         }
 
-        //progress bar底部进度条
-        let progressElement = $query('.progress-bar')
-        let scrollAvail = pageHeight - winHeight // 可滚动的高度
-        if (progressElement && scrollAvail) {
-            progressElement.style.width = (scrollTop / scrollAvail) * 100 + '%'
-        }
-
-
         // 回到顶部
         let backTop = $id("backTop")
         if (scrollTop > 20) {
             backTop.style.visibility = "unset"
         } else {
             backTop.style.visibility = "hidden"
+        }
+
+        //progress bar底部进度条
+        let progressElement = $query('.progress-bar')
+        let scrollAvail = pageHeight - winHeight // 可滚动的高度
+        if (progressElement && scrollAvail) {
+            progressElement.style.width = (scrollTop / scrollAvail) * 100 + '%'
         }
 
         // toc目录百分比
@@ -140,15 +117,33 @@ function scrollFn() {
             num.innerText = percentage + "%"
             $query(".progress").value = percentage
         }
-
     })
 }
 
-// 文章所需JS
+//文章页面执行JS
 function articlePage() {
     if (!$id('post')) return;
-    // 代码框
-    ;(function () {
+
+    ;(function () { // 打开目录
+        let open_toc = $id("open_toc")
+        let toc = $id("toc")
+        if (!toc) return
+        open_toc.onclick = function () {
+            let is_open = toc.classList.contains("open_toc")
+            if (!is_open) {
+                toc.classList.add("open_toc")
+                let toc_text = $queryAll(".toc-link")
+                for (let i in toc_text) {
+                    toc_text[i].onclick = function () {
+                        toc.classList.remove("open_toc")
+                    }
+                }
+            } else toc.classList.remove("open_toc")
+        }
+    })()
+
+    ;(function () { // 代码框
+
         let code_block = $queryAll("figure.highlight")
         code_block.forEach(function (item) {
             let lang = item.classList[1]
@@ -160,8 +155,7 @@ function articlePage() {
         })
     })()
 
-    // fancybox
-    ;(function () {
+    ;(function () { // fancybox
         getScript($config.CDN.fancybox_js, function () {
             Fancybox.bind('[data-img]')
             let link = document.createElement('link')
@@ -172,12 +166,11 @@ function articlePage() {
         })
     })()
 
-    // 代码块折叠
-    ;(function () {
-        if (!$config.codeBlockExpand || !$config.codeBlockExpand.enable) return
+    ;(function () { // 代码块折叠
+        if (!$config.code_block_expand || !$config.code_block_expand.enable) return
         let CodeBlock = $queryAll("figure.highlight")
         // 定义高度
-        let height = $config.codeBlockExpand.height
+        let height = $config.code_block_expand.height
         // 获取当前页面的所有的代码块 循环判断符合条件的折叠
         for (let i = 0; i < CodeBlock.length; i++) {
             if (CodeBlock[i].clientHeight > height) {
@@ -209,62 +202,44 @@ function articlePage() {
                     scrollTop = document.documentElement.scrollTop || document.body.scrollTop
                     let node_bottom = item.getBoundingClientRect().bottom // 获取当前元素底部距离可见部分的距离
                     let CodeBlockBottom = node_bottom + scrollTop, // 当前代码块底部距离顶部距离
-                        CodeBlockHeight = $config.codeBlockExpand.height,// 获取代码块超过多少数值折叠代码块
-                        CodeBlockScrollTop = $config.codeBlockExpand.scrollTop // 获取代码块关闭折叠后滚动返回代码块顶部的距离
+                        CodeBlockHeight = $config.code_block_expand.height,// 获取代码块超过多少数值折叠代码块
+                        CodeBlockScrollTop = $config.code_block_expand.scrollTop // 获取代码块关闭折叠后滚动返回代码块顶部的距离
                     window.scrollTo(0, CodeBlockBottom - CodeBlockHeight - CodeBlockScrollTop)
                 }
             }
         })
     })()
 
-    // 打开目录
-    ;(function () {
-        let open_toc = $id("open_toc")
-        let toc = $id("toc")
-        if (!toc) return
-        open_toc.onclick = function () {
-            let is_open = toc.classList.contains("open_toc")
-            if (!is_open) {
-                toc.classList.add("open_toc")
-                let toc_text = $queryAll(".toc-link")
-                for (let i in toc_text) {
-                    toc_text[i].onclick = function () {
-                        toc.classList.remove("open_toc")
-                    }
-                }
-            } else toc.classList.remove("open_toc")
-        }
-    })()
-
-    // 代码块复制
-    ;(function () {
-        $queryAll('figure.highlight').forEach(function (item) {
-            // 获取所有代码块
+    ;(function () { // 代码块复制
+        $queryAll("figure.highlight").forEach(function (item) { // 获取所有代码块
             // firstChild: 获取代码块中的第一个子元素
             // childNodes: 返回当前元素的所有子元素(包括:before和:after)
-            var copy = item.firstChild.childNodes[1]
-            copy.onclick = function () {
-                var selection = window.getSelection()
-                selection.selectAllChildren(item.querySelector('.code'))
-                navigator.clipboard ? navigator.clipboard.writeText(selection.toString()) : document.execCommand('copy')
+            let clipboard = item.firstChild.childNodes[1]
+            clipboard.onclick = function () {
+                let selection = window.getSelection()
+                selection.selectAllChildren(item.querySelector(".code"))
+                document.execCommand("copy")
                 selection.removeAllRanges()
-                copy.innerHTML = '<i class="fa fa-check" style="color:green"></i>'
+                clipboard.innerHTML = "<i class='fa fa-check' style='color:green'></i>"
                 setTimeout(function () {
-                    copy.innerHTML = '<i class="fa fa-clipboard"></i>'
+                    clipboard.innerHTML = "<i class='fa fa-clipboard'></i>"
                 }, 2000)
             }
         })
+    })()
+
+    ;(function () {
+
     })()
 }
 
 // 执行所有函数
 function exeAllFn() {
-    openMobile() // 打开手机端导航栏
-    rightsideShow() // 显示侧边栏隐藏部分
-    closeAll() // 关闭所有弹窗
+    open_mobile() // 打开手机端导航栏
+    close_all() // 关闭所有弹窗
     DarkMode() // 深色模式
-    scrollFn() // 滚动事件
-    articlePage() // 只有文章页才会执行
+    scroll() // 滚动事件
+    articlePage() //文章页面执行JS
 }
 
-window.onload = exeAllFn
+document.addEventListener('DOMContentLoaded', exeAllFn)

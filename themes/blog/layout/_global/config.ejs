@@ -1,7 +1,7 @@
 <%
-var codeBlockExpand = theme.code_block_expand
+var code_block_expand = theme.code_block_expand
 %>
-<script defer type="application/javascript">
+<script type="application/javascript">
     var $config = {
         CDN: {
             fancybox_js: "<%= theme.CDN.fancybox_js %>",
@@ -10,11 +10,11 @@ var codeBlockExpand = theme.code_block_expand
         <% if(theme.search.enable){ %>
         search_file: "<%= url_for(theme.search.path) %>",
         <% } %>
-        <% if(codeBlockExpand.enable){ %>
-        codeBlockExpand: {
-            enable: <%= codeBlockExpand.enable %>,
-            height: <%= codeBlockExpand.height %>,
-            scrollTop: <%= codeBlockExpand.scrollTop %>
+        <% if(code_block_expand.enable){ %>
+        code_block_expand: {
+            enable: <%= code_block_expand.enable %>,
+            height: <%= code_block_expand.height %>,
+            scrollTop: <%= code_block_expand.scrollTop %>
         },
         <% } %>
         <% if(theme.comments == "discuss"){ %>

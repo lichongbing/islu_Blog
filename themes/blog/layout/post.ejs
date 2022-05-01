@@ -32,7 +32,7 @@
                     | <i class="far fa-eye fa-fw post-meta-icon"></i>
                     <span id="<%- url_for(page.path) %>" class="leancloud_visitors">
                         <span class="post-meta-label"><%- __('post.visitors') %>:</span>
-                        <span id="islu_site_page_pv">N</span>
+                        <span id="Discuss-Visitors">N</span>
                     </span>
                 <% } %>
             </div>
@@ -42,7 +42,7 @@
                 <span id="timeLag"></span>
             </p>
         </div>
-        <script async type="text/javascript">
+        <script type="text/javascript">
             function timeLag() {
                 let dateTime = new Date($id("dateTime").innerHTML)  /*文章发布日期*/
                 let updateTime = new Date($id("updateTime").innerHTML);  /*文章更新日期*/
@@ -64,7 +64,6 @@
                     timeLag.innerText = ("该文章发表于" + days + "天前~已经凉了~请加热后食用~")
                 }
             }
-
             timeLag()
         </script>
     </div>
@@ -102,7 +101,7 @@
               <a href="<%= licenses[1] %> " target="_blank">
                   <%= licenses[0] %> </a> <%- description[1] %>
               <a href="<%= url %>" target="_blank"><%- title %></a>
-              </span>
+              ！</span>
                 </div>
             </div>
         <% } %>
@@ -169,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    <script defer type="text/javascript">
+                    <script type="text/javascript">
                         $id("make_reward_close").onclick = function () {
                             $query(".reward_main").style.display = "none"
                         }
@@ -347,8 +346,8 @@
 <%# 是否有公式 %>
 <% if (page.mathjax) { %>
     <!--  mathjax数学公式支持  -->
-    <script defer src="<%- theme.CDN.mathjax %>"></script>
-    <script defer type="application/javascript">
+    <script src="<%- theme.CDN.mathjax %>"></script>
+    <script type="application/javascript">
         MathJax = {
             loader: {
                 source: {

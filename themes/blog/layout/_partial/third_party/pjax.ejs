@@ -1,6 +1,7 @@
 <% if(theme.pjax){ %>
 <script type="text/javascript">
     getScript("<%- theme.CDN.pjax %>", loadPjax)
+
     function loadPjax() {
         window.pjax = new Pjax({
             selectors: [
@@ -67,7 +68,7 @@
         // 加载进度条加载完毕
         ProgressFinish()
         // 执行所有方法
-        exeAllFn()
+        exe_all_fn()
 
         <% if(theme.lazyload.enable){ %>
         // 图片懒加载

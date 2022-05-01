@@ -74,7 +74,7 @@ nav
               background-color red
 
             &:hover
-              & ~ .indicator
+              & ~ #indicator
                 background linear-gradient(130deg, yellow, red)
 
         &:nth-child(even)
@@ -86,7 +86,7 @@ nav
               background-color #89ff00
 
             &:hover
-              & ~ .indicator
+              & ~ #indicator
                 left 34%
                 background linear-gradient(130deg, #00e2ff, #89ff00)
 
@@ -105,7 +105,7 @@ nav
                   background-color palevioletred
 
                 &:hover
-                  & ~ .indicator
+                  & ~ #indicator
                     left 70%
                     background linear-gradient(130deg, purple, palevioletred)
 
@@ -156,11 +156,11 @@ nav
             &:before, &:after
               transform scale(1)
 
-            & ~ .indicator
+            & ~ #indicator
               visibility unset
               width 100%
 
-        .indicator
+        #indicator
           visibility hidden
           width 0
           height 3px

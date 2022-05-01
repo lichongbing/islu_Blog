@@ -1,5 +1,5 @@
 ---
-title: Matery添加暗色模式
+title: Matery主题添加暗色模式
 author: 闲花
 img: "https://files.islu.cn/article/Dark+Light"
 top: true

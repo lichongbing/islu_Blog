@@ -1,6 +1,6 @@
 <% var option=theme.waline.option ? JSON.stringify(theme.waline.option) : false %>
 <div id="wcomments"></div>
-<script defer>
+<script>
 function LoadWaline() {
     getScript("<%-theme.waline.source%>",function(){
         let initData = {
