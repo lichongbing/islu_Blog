@@ -101,13 +101,3 @@ function ImgLazyLoad(img, attr) {
     imgLazyLoad.forEach(LazyLoad)
 }
 ImgLazyLoad("body img[data-img]", "data-img")
-
-/**
- * 判断是否为移动端
- */
-function IsPC() {
-    let t = navigator.userAgent
-    var n = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod", "iPad"]
-    for (let e = 0; e < n.length; e++) if (0 <= t.indexOf(n[e])) return false
-    return true
-}
