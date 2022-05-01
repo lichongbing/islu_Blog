@@ -53,17 +53,6 @@ function getScript(url, callback) {
 }
 
 /**
- * 动态添加CSS
- */
-function getLink(url){
-    let link = document.createElement("link");
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.href = url;
-    $query("head")[0].appendChild(link);
-}
-
-/**
  * 图片懒加载
  * @param {*} img 需要懒加载的img元素(标签)
  * @param {*} attr 图片的真实url地址
