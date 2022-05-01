@@ -64,6 +64,7 @@
                     timeLag.innerText = ("该文章发表于" + days + "天前~已经凉了~请加热后食用~")
                 }
             }
+
             timeLag()
         </script>
     </div>
@@ -97,11 +98,12 @@
                 </div>
                 <div class="post_copyright_notice">
                     <span class="post_copyright_meta"><%- __('copyright.notice') %>: </span>
-                    <span class="post_copyright_info"><%- description[0] %>
-              <a href="<%= licenses[1] %> " target="_blank">
-                  <%= licenses[0] %> </a> <%- description[1] %>
-              <a href="<%= url %>" target="_blank"><%- title %></a>
-              ！</span>
+                    <span class="post_copyright_info">
+                        <%- description[0] %>
+                      <a href="<%= licenses[1] %> " target="_blank">
+                          <%= licenses[0] %> </a> <%- description[1] %>
+                      <a href="<%= url %>" target="_blank"><%- title %></a>
+                    </span>
                 </div>
             </div>
         <% } %>

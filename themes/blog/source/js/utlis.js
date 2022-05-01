@@ -52,26 +52,16 @@ function getScript(url, callback) {
    $id("resource") != null ? $id("resource").appendChild(script) : document.body.appendChild(script)
 }
 
-/***
- * js懒加载
+/**
+ * 动态添加CSS
  */
-function loadScript(src, callback) {
-    let script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = src
-    if (script.addEventListener) {
-        script.addEventListener('load', function () {
-            callback()
-        }, false)
-    } else if (script.attachEvent) {
-        script.attachEvent('onreadystatechange', function () {
-            let target = window.event.srcElement
-            if (target.readyState == 'loaded') {
-                callback()
-            }
-        })
-    }
-    $id("resource") != null ? $id("resource").appendChild(script) : document.body.appendChild(script)
+function getLink(url){
+    var link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = url;
+    var head = document.getElmentsByTagName("head")[0];
+    head.appendChild(link);
 }
 
 /**
@@ -80,24 +70,20 @@ function loadScript(src, callback) {
  * @param {*} attr 图片的真实url地址
  */
 function ImgLazyLoad(img, attr) {
-    var imgLazyLoad = $queryAll(img)
-
-    function LazyLoad(target) {
+    $queryAll(img).forEach((target) => {
         const io = new IntersectionObserver((entries, Observer) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 setTimeout(function () {
                     if (entry.isIntersecting) {
                         const img = entry.target
                         const src = img.getAttribute(attr)
-                        img.setAttribute("src", src)
+                        img.setAttribute('src', src)
                         Observer.disconnect()
                     }
                 }, 500)
             })
         })
         io.observe(target)
-    }
-
-    imgLazyLoad.forEach(LazyLoad)
+    })
 }
-ImgLazyLoad("body img[data-img]", "data-img")
+ImgLazyLoad('body img[data-img]', 'data-img')

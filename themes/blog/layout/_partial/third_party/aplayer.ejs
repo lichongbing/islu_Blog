@@ -1,6 +1,5 @@
 <% if (theme.music.enable){ %>
     <div id="aplayer">
-        <link rel="stylesheet" href="https://files.islu.cn/aplayer/APlayer.min.css">
         <style>
             div#aplayer {
                 position: sticky;
@@ -8,28 +7,35 @@
                 bottom: 0;
                 z-index: 9;
             }
+
             .aplayer .aplayer-lrc p {
                 font-size: 12px;
                 font-weight: 700;
                 line-height: 16px !important;
             }
+
             span.aplayer-list-title {
                 color: #666;
             }
+
             .aplayer .aplayer-list ol li {
                 background-color: aliceblue;
             }
+
             .aplayer .aplayer-lrc p.aplayer-lrc-current {
                 font-size: 15px;
                 color: <%- theme.music.theme %>;
             }
+
             <%if(theme.music.autoHide){%>
             .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
                 left: -66px !important;
             }
+
             .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
                 left: 0 !important;
             }
+
             <%}%>
         </style>
         <meting-js
@@ -47,11 +53,11 @@
         >
         </meting-js>
         <script defer>
-            loadScript("https://files.islu.cn/aplayer/APlayer.min.js",function () {
-                loadScript("https://files.islu.cn/aplayer/Meting.min.js",function (){
-                    console.log("音乐加载完毕!")
+            $id("music").onclick = function () {
+                getScript("https://files.islu.cn/aplayer/APlayer.min.js", function () {
+                    getScript("https://files.islu.cn/aplayer/Meting.min.js", getLink("https://files.islu.cn/aplayer/APlayer.min.css"))
                 })
-            })
+            }
         </script>
     </div>
 <% } %>

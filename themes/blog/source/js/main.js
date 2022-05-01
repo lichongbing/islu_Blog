@@ -73,7 +73,7 @@ function DarkMode() {
 
 // 滚动事件
 function scroll() {
-    // 监听 scroll 
+    // 监听 scroll
     let windowTop = 0 // 定义初始位置
     window.addEventListener('scroll', function () {
         let winHeight = document.documentElement.clientHeight || document.body.clientHeight //窗口高度
@@ -89,11 +89,7 @@ function scroll() {
 
         // 回到顶部
         let backTop = $id("backTop")
-        if (scrollTop > 20) {
-            backTop.style.visibility = "unset"
-        } else {
-            backTop.style.visibility = "hidden"
-        }
+        scrollTop > 20 ? backTop.style.visibility = "unset" : backTop.style.visibility = "hidden"
 
         //progress bar底部进度条
         let progressElement = $query('.progress-bar')
@@ -123,8 +119,8 @@ function scroll() {
 //文章页面执行JS
 function articlePage() {
     if (!$id('post')) return;
-
-    ;(function () { // 打开目录
+    // 打开目录
+    ;(function () {
         let open_toc = $id("open_toc")
         let toc = $id("toc")
         if (!toc) return
@@ -141,9 +137,8 @@ function articlePage() {
             } else toc.classList.remove("open_toc")
         }
     })()
-
-    ;(function () { // 代码框
-
+    // 代码框
+    ;(function () {
         let code_block = $queryAll("figure.highlight")
         code_block.forEach(function (item) {
             let lang = item.classList[1]
@@ -154,8 +149,8 @@ function articlePage() {
             item.insertAdjacentHTML('afterbegin', ele)
         })
     })()
-
-    ;(function () { // fancybox
+    // fancybox
+    ;(function () {
         getScript($config.CDN.fancybox_js, function () {
             Fancybox.bind('[data-img]')
             let link = document.createElement('link')
@@ -165,8 +160,8 @@ function articlePage() {
             document.head.appendChild(link)
         })
     })()
-
-    ;(function () { // 代码块折叠
+    // 代码块折叠
+    ;(function () {
         if (!$config.code_block_expand || !$config.code_block_expand.enable) return
         let CodeBlock = $queryAll("figure.highlight")
         // 定义高度
@@ -209,8 +204,8 @@ function articlePage() {
             }
         })
     })()
-
-    ;(function () { // 代码块复制
+    // 代码块复制
+    ;(function () {
         $queryAll("figure.highlight").forEach(function (item) { // 获取所有代码块
             // firstChild: 获取代码块中的第一个子元素
             // childNodes: 返回当前元素的所有子元素(包括:before和:after)
@@ -226,10 +221,6 @@ function articlePage() {
                 }, 2000)
             }
         })
-    })()
-
-    ;(function () {
-
     })()
 }
 

@@ -269,39 +269,6 @@ if hexo-config('darkmode.starDark')
     z-index -1
 
 
-/* 滚动条 */
-::-webkit-scrollbar
-  display none
-
-/* 底部滚动条 */
-if hexo-config('scrollbar.footer')
-  .progress-bar
-    height 4px
-    position fixed
-    bottom 0
-    z-index 993
-    background linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)
-    background-size 400% 400%
-    animation gradientBG 15s ease infinite
-    opacity 0.8
-
-/* 侧边滚动条 */
-if hexo-config('scrollbar.aside')
-  .scrollbar
-    position fixed
-    top calc(50% - 50px)
-    right 15px
-    height 100px
-    width 6px
-    background-color var(--love_color)
-    border-radius 12px
-    overflow hidden
-
-  .scrollbar-current
-    background-color var(--navbar_bg)
-    border-radius 12px
-    width 6px
-    transition height 0.2s ease-out
 
 h1 {
   margin: 48px 0 22px -5px;
