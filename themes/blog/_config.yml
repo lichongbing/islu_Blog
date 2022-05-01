@@ -338,10 +338,11 @@ font:
   code: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
 
 # 主题的css与js引入
-## 无特殊要求请勿更改  
+## 无特殊要求请勿更改
 CDN:
   # my resource
   main_css: /css/main.css
+  other_css: /css/other.css
   main_js: /js/main.js
   utlis: /js/utlis.js
   # pjax
