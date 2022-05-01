@@ -41,6 +41,7 @@ function close_all() {
 
 // 深色模式
 function DarkMode() {
+    if (!$id('darkmode')) return
     let darkIco = $query('#darkmode i')
     if (localStorage.isDark === 'true') {
         html.setAttribute('theme', 'dark')
@@ -52,8 +53,7 @@ function DarkMode() {
         darkIco.classList.remove('fa-sun')
         darkIco.classList.add('fa-moon')
     }
-    let darkBtn = $query('.pio-night') == null ? $id('darkmode') : $query('.pio-night')
-    darkBtn.onclick = function () {
+    $id('darkmode').onclick = function () {
         let body_wrap = $id("body_wrap")
         if (localStorage.isDark !== 'true') {
             localStorage.isDark = 'true'
