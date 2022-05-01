@@ -56,7 +56,6 @@ index_description:
   line: 1 # 显示多少行后出现省略号(...)
   length: 20 # 截取多少字
 
-
 # Whether to display the musics.
 # 是否在首页显示音乐.
 music:
