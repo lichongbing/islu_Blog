@@ -56,8 +56,6 @@ index_description:
   line: 1 # 显示多少行后出现省略号(...)
   length: 20 # 截取多少字
 
-# live2d
-live2d: false
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
